@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import SocialLogin from './SocialLogin';
 
 const Register = () => {
     return (
-        <div>
+        <div className='container'>
+        <div className='row'>
+        <div class="col-md-6 offset-md-3">
+            <h1>Login</h1>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -24,6 +29,10 @@ const Register = () => {
                     Login
                 </Button>
             </Form>
+            <p>Already register at Ware Houe? Please <Link to="/login">Register</Link> here</p>
+            <SocialLogin></SocialLogin>
+            </div>
+        </div>
         </div>
     );
 };
