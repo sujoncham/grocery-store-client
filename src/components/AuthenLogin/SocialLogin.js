@@ -1,13 +1,15 @@
 import React from "react";
 import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
 import Loading from "../SharedPart/Loading";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+  let from = location?.state?.from.pathName || '/';
   
   let errorElement;
   if (error || gitError) {
@@ -19,7 +21,7 @@ const SocialLogin = () => {
   }
 
   if (user || gitUser) {
-    navigate("/");
+    navigate(from, {replace:true});
   }
 
   return (

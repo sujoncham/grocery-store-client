@@ -19,11 +19,9 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
-        auth
-      );
+      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-      let from = location.state?.from.pathName || '/';
+      let from = location?.state?.from.pathName || '/';
 
     let errorHandle;
     if (error) {
@@ -37,10 +35,10 @@ const Login = () => {
         navigate(from, {replace:true});
       }
       
-      const handleLoginSubmit = async event =>{
+      const handleLoginSubmit = event =>{
         const email = event.target.email.value;
         const password = event.target.password.value;
-       await signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password)
 
       }
 
@@ -59,8 +57,7 @@ const Login = () => {
         <div className='row'>
         <div className="col-md-6 offset-md-3">
             <h1 className='text-primary text-center text-uppercase'>Login</h1>
-            {loading}
-            {errorHandle}
+            
             <Form onSubmit={handleLoginSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
@@ -74,9 +71,11 @@ const Login = () => {
                 <Button className='w-50 d-block mx-auto mb-3 mt-3' variant="primary" type="submit">
                     Login
                 </Button>
+                {loading}
+            {errorHandle}
             </Form>
-            <p>Forgot password?
-            <button onClick={handleResetPassword} className='btn btn-link text-center d-block mb-3 mt-3' >Reset Password</button>
+            <p className='text-center mb-3 mt-3'>
+                Forgot password?<button onClick={handleResetPassword} className='btn btn-link' >Reset Password</button>
             </p>
             <p className='text-center w-50 mx-auto d-block mb-3 mt-3 linemen'></p>
             <p className='text-center d-block mb-3 mt-3'>New user at Ware Houe? Please <Link to="/register">Register</Link> here</p>

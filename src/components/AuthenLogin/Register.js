@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import Loading from '../SharedPart/Loading';
 import SocialLogin from './SocialLogin';
 
 const Register = () => {
     const [agree, setAgree] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
     const [
         createUserWithEmailAndPassword,
         user,
@@ -16,6 +17,7 @@ const Register = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+      let from = location?.state?.from.pathName || '/';
 
       let errorHandle;
       if (error || updateError) {
@@ -26,7 +28,7 @@ const Register = () => {
       }
 
       if(user){
-          console.log("user", user);
+        navigate(from, {replace:true});
       }
 
       const handleSubmitForm = async (event) =>{
@@ -37,7 +39,7 @@ const Register = () => {
             await createUserWithEmailAndPassword(email, password, name);
             await updateProfile({ displayName : name});
             console.log('Updated profile');
-            navigate('/');
+            navigate(from, {replace:true});
       }
 
     return (
