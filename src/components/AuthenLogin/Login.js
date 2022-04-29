@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
+import Loading from '../SharedPart/Loading';
 import './Authenticate.css';
 import SocialLogin from './SocialLogin';
 
@@ -27,7 +28,7 @@ const Login = () => {
         errorHandle = <p className='text-danger'>Error: {error.message}</p>
       }
       if (loading || sending) {
-        return <p>Loading...</p>;
+        return <Loading></Loading>
       }
 
       if(user){

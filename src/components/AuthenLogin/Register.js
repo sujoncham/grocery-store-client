@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
+import Loading from '../SharedPart/Loading';
 import SocialLogin from './SocialLogin';
 
 const Register = () => {
@@ -17,11 +18,11 @@ const Register = () => {
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
       let errorHandle;
-      if (error) {
-        errorHandle = <p className='text-center'>Error: {error?.message}</p>
+      if (error || updateError) {
+        errorHandle = <p className='text-center'>Error: {error?.message} {updateError?.message}</p>
       }
-      if (loading) {
-        return <p>Loading...</p>;
+      if (loading || updating) {
+        return <Loading></Loading>
       }
 
       if(user){

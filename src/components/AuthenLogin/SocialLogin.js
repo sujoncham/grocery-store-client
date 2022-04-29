@@ -2,6 +2,7 @@ import React from "react";
 import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
+import Loading from "../SharedPart/Loading";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
@@ -12,16 +13,17 @@ const SocialLogin = () => {
   if (error || gitError) {
     errorElement = <p className="text-danger">Error: {error?.message} {gitError?.message}</p>;
   }
+
   if (loading || gitLoading) {
-    return <h3 className="text-warning">Loading...</h3>;
+    return <Loading></Loading>
   }
+
   if (user || gitUser) {
     navigate("/");
   }
 
   return (
     <div className="social-login">
-      
       <div className="d-flex align-items-center">
         <div className="lineDiv"></div> <span className="p-2">or</span>{" "}
         <div className="lineDiv"></div>
@@ -31,7 +33,6 @@ const SocialLogin = () => {
       {gitLoading}
 
       <div className="mt-5 mb-4 w-50 mx-auto">
-        
         <div className="google-sign mb-4">
         <button onClick={() => signInWithGoogle()} className="btn btn-primary w-100 mx-auto">
          <img className="social-img" src="https://i.ibb.co/TL9tBnZ/google.png" alt="" /> Continue with Google
