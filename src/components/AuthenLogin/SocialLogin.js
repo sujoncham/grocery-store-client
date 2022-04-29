@@ -13,7 +13,7 @@ const SocialLogin = () => {
     errorElement = <p className="text-danger">Error: {error?.message} {gitError?.message}</p>;
   }
   if (loading || gitLoading) {
-    return <p>Loading...</p>;
+    return <h3 className="text-warning">Loading...</h3>;
   }
   if (user || gitUser) {
     navigate("/");
@@ -27,17 +27,19 @@ const SocialLogin = () => {
         <div className="lineDiv"></div>
       </div>
       {errorElement}
+      {loading}
+      {gitLoading}
 
       <div className="mt-5 mb-4 w-50 mx-auto">
         
         <div className="google-sign mb-4">
-        <button onClick={() => signInWithGoogle()} className="btn btn-primary">
-          Continue with Google
+        <button onClick={() => signInWithGoogle()} className="btn btn-primary w-100 mx-auto">
+         <img className="social-img" src="https://i.ibb.co/TL9tBnZ/google.png" alt="" /> Continue with Google
         </button>
         </div>
         <div className="git-sign">
-        <button onClick={() => signInWithGithub()} className="btn btn-primary">
-          Continue with Github
+        <button onClick={() => signInWithGithub()} className="btn btn-primary w-100 mx-auto">
+         <img className="social-img" src="https://i.ibb.co/qyBQKdP/github.png" alt="" /> Continue with Github
         </button>
         </div>
       </div>

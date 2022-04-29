@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import SocialLogin from './SocialLogin';
 
 const Register = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassord] = useState('');
-    const [name, setName] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [agree, setAgree] = useState(false);
     const navigate = useNavigate()
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-      const handleSubmitForm = (event) =>{
-        event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const name = event.target.name.value;
-        const confirmPassword = event.target.confirmPassword.value;
-
-        createUserWithEmailAndPassword(email, password, name, confirmPassword);
-      }
       let errorHandle;
       if (error) {
         errorHandle = <p className='text-center'>Error: {error?.message}</p>
@@ -36,14 +25,25 @@ const Register = () => {
       }
 
       if(user){
-          navigate('/');
+          console.log("user", user);
+      }
+
+      const handleSubmitForm = async (event) =>{
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const name = event.target.name.value;
+            await createUserWithEmailAndPassword(email, password, name);
+            await updateProfile({ displayName : name});
+            console.log('Updated profile');
+            navigate('/');
       }
 
     return (
         <div className='container mt-5'>
         <div className='row'>
         <div className="col-md-6 offset-md-3">
-            <h1>Register</h1>
+            <h1 className='text-primary text-center text-uppercase'>Register</h1>
             {errorHandle}
             <Form onSubmit={handleSubmitForm}>
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -52,25 +52,28 @@ const Register = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Your email</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Your password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" name='confirmPassword' placeholder="Confirm Password" />
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check onClick={()=>setAgree(!agree)} className={`ps-2 ${agree ? '' : 'text-danger'}`} type="checkbox" label="Accept terms & conditions" />
                 </Form.Group>
                 
-                <Button variant="primary" type="submit">
+                <Button 
+                disabled={!agree}
+                className='w-50 d-block mx-auto mb-3 mt-3' 
+                variant="primary" 
+                type="submit">
                     Register
                 </Button>
             </Form>
-            <p>Already register at Ware Houe? Please <Link to="/login">Login</Link> here</p>
+            <p>Already register at Ware House? Please <Link to="/login">Login</Link> here</p>
             <SocialLogin></SocialLogin>
             </div>
         </div>
