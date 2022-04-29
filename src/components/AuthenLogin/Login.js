@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../Firebase/Firebase.init';
 import Loading from '../SharedPart/Loading';
 import './Authenticate.css';
@@ -33,20 +35,23 @@ const Login = () => {
 
       if(user){
         navigate(from, {replace:true});
-
       }
       
-      const handleLoginSubmit = event =>{
+      const handleLoginSubmit = async event =>{
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password)
+       await signInWithEmailAndPassword(email, password)
 
       }
 
       const handleResetPassword = async (event) =>{
-        const email = event.target.email.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email')
+        const email = event.target.value;
+        if(email){
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        } else{
+            toast("please, enter your email");
+        }
       }
 
     return (
@@ -70,11 +75,14 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
-            <Link onClick={handleResetPassword} className='text-center d-block mb-3 mt-3' to="/">Forgot Password?</Link>
+            <p>Forgot password?
+            <button onClick={handleResetPassword} className='btn btn-link text-center d-block mb-3 mt-3' >Reset Password</button>
+            </p>
             <p className='text-center w-50 mx-auto d-block mb-3 mt-3 linemen'></p>
             <p className='text-center d-block mb-3 mt-3'>New user at Ware Houe? Please <Link to="/register">Register</Link> here</p>
             
             <SocialLogin></SocialLogin>
+            <ToastContainer />
             </div>
         </div>
         </div>
