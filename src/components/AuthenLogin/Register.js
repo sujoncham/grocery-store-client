@@ -17,7 +17,7 @@ const Register = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-      let from = location?.state?.from.pathName || '/';
+      let from = location.state?.from?.pathName || '/';
 
       let errorHandle;
       if (error || updateError) {

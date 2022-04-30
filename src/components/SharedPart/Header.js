@@ -23,7 +23,7 @@ const Header = () => {
                     <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
                     <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
                     <Nav.Link as={Link} to="/addStock">AddStock</Nav.Link>
-                    {user?.displayName && user.displayName.slice(0, 6)}
+                    <p className='text-white mt-2'>{user?.displayName && user.displayName.slice(0, 6)}</p>
                     {
                         user ? 
                         <button className='btn btn-link' onClick={handleSignOut} >SignOut</button>

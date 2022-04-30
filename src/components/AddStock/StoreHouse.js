@@ -7,7 +7,7 @@ const StoreProduct = () => {
     const [stores, setStores] = useState([]);
     const navigate = useNavigate();
     useEffect(()=>{
-        fetch('StoreProduct.json')
+        fetch('http://localhost:5000/inventory')
         .then(res => res.json())
         .then(data => setStores(data));
     }, []);
@@ -20,12 +20,12 @@ const StoreProduct = () => {
             <Row>
             <h1>Store : {stores.length}</h1>
             {
-                stores.map(store => <div key={store.id} className='col-12 col-sm-12 col-md-3 col-lg-3 mb-5'>
+                stores.map(store => <div key={store._id} className='col-12 col-sm-12 col-md-3 col-lg-3 mb-5'>
                     <div className='product-item'>
                     <img src={store.img} alt="" />
                     <div className='product-title'>
                     <h3>{store.title}</h3>
-                    <button onClick={()=>handleNavigate(store.id)} className='btn btn-primary'>see detail</button>
+                    <button onClick={()=>handleNavigate(store._id)} className='btn btn-primary'>see detail</button>
                     </div>
                     </div>
                 </div> )

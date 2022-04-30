@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const UpdateStock = () => {
     const {inventoryId} = useParams();
+    const [stock, setStock] = useState({});
+    useEffect(()=>{
+        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setStock(data))
+    }, [inventoryId])
     return (
         <div className='w-50 mx-auto'>
-            <h1>Stock Updates : {inventoryId}</h1>
+            <h1>Stock Updates : {stock.title}</h1>
             <Link to="/stockList">
             <button className='btn btn-primary'>UpdateStock</button>
             </Link>

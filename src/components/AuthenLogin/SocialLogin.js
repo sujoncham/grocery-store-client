@@ -9,7 +9,7 @@ const SocialLogin = () => {
   const location = useLocation();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
-  let from = location?.state?.from.pathName || '/';
+  let from = location.state?.from?.pathName || '/';
   
   let errorElement;
   if (error || gitError) {
