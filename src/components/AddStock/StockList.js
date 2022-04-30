@@ -1,46 +1,39 @@
-import React from 'react';
-import { Container, Row, Table } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import useStockHouse from "../../hooks/useStockHouse";
+import StockTable from "./StockTable";
 
 const StockList = () => {
-    return (
-        <Container>
-            <h1>Stock List</h1>
-            <Row>
-                <div className='col-md-3'></div>
-                <div className='col-md-9'>
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                    </Table>
-                </div>
-            </Row>
-        </Container>
-    );
+  const [stores] = useStockHouse();
+  return (
+    <Container>
+      
+      <Row>
+          <div className="col-md-12 d-flex justify-content-between align-items-center mt-5 mb-4">
+          <h1>Stock List</h1> <Link to='/addStock'> <button className="btn btn-primary">Add Stock</button> </Link>
+          </div>
+        <div className="col-md-12">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stores.map((store, index) => (
+                <StockTable index={index} key={store._id} store={store}></StockTable>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      </Row>
+    </Container>
+  );
 };
 
 export default StockList;
