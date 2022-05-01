@@ -29,26 +29,25 @@ const AddStock = () => {
             toast("added data successfully");
             event.target.reset();
         })
-
     }
 
     return (
         <div className='container'>
-        <div className='row'>
-        <div className='w-50 mx-auto'>
-            <h1>Add Stock Item</h1>
-            <Form className='d-flex flex-column' onSubmit={handleAddStock}>
-                <input className='mb-3' type="text" name="title" placeholder='Stock name' />
-                <input className='mb-3' type="text" name="price" placeholder='Product price' />
-                <input className='mb-3' type="text" name="stock" placeholder='Add stock' />
-                <input className='mb-3' type="text" name="dealer" placeholder='Dealer name' />
-                <input className='mb-3' type="text" name="img" placeholder='Image link' />
-                <textarea type="text" name="descrip" placeholder='Stock Description' />
-                <input type="submit" className="btn btn-primary mt-4 mb-5" value='Add Stock' />
-            </Form>
-            <ToastContainer></ToastContainer>
-        </div>
-        </div>
+            <div className='row'>
+                <div className='w-50 mx-auto'>
+                    <h1>Add Stock Item</h1>
+                    <Form className='d-flex flex-column' onSubmit={handleAddStock}>
+                        <input className='mb-3' type="text" name="title" placeholder='Stock name' />
+                        <input className='mb-3' type="text" name="price" placeholder='Product price' />
+                        <input className='mb-3' type="text" name="stock" placeholder='Add stock' />
+                        <input className='mb-3' type="text" name="dealer" placeholder='Dealer name' />
+                        <input className='mb-3' type="text" name="img" placeholder='Image link' />
+                        <textarea type="text" name="descrip" placeholder='Stock Description' />
+                        <input type="submit" className="btn btn-primary mt-4 mb-5" value='Add Stock' />
+                    </Form>
+                    <ToastContainer></ToastContainer>
+                </div>
+            </div>
         </div>
     );
 };

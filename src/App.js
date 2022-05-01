@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddStock from './components/AddStock/AddStock';
+import SingleStockUpdate from './components/AddStock/SingleStockUpdate';
 import StockList from './components/AddStock/StockList';
 import UpdateStock from './components/AddStock/UpdateStock';
 import Login from './components/AuthenLogin/Login';
@@ -38,6 +39,7 @@ function App() {
         }></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:inventoryId' element={<UpdateStock></UpdateStock>}></Route>
+        <Route path='/singleStock/:inventorySingleId' element={<SingleStockUpdate></SingleStockUpdate>}></Route>
         <Route path='*' element={<Page404></Page404>}></Route>
       </Routes>
       <Footer></Footer>

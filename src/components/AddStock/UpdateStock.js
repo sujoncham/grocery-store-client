@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateStock = () => {
     const {inventoryId} = useParams();
+    const navigate = useNavigate();
+    const [permitted, setPermitted] = useState(false);
     const [stockProduct, setStockProduct] = useState({});
     useEffect(()=>{
         const url = `http://localhost:5000/inventory/${inventoryId}`;
@@ -11,53 +14,33 @@ const UpdateStock = () => {
         .then(result => setStockProduct(result));
     }, [inventoryId])
 
-    const handleUpdateStock = () =>{
-        const updateStock = stockProduct.stock + 1;
-        const latestStock = {updateStock};
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(latestStock)
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log('success', data)
-            // event.target.reset()
-            // setStockProduct(data);
-        })
+
+    const handleProceedStock = (id) =>{
+        navigate(`/singleStock/${id}`)
     }
 
-    const handleDeliverStock = () =>{
-        const updateDeliver = stockProduct.stock + 1;
-        const latestDeliver = {updateDeliver};
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(latestDeliver)
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log('success', data)
-            // setStockProduct(data);
-            // event.target.reset()
-        })
+    const handleProceedHome = () =>{
+        navigate('/home');
     }
 
 
     return (
-        <div className='w-50 mx-auto'>
-           <h1>Stock Updates : {stockProduct.title}</h1>
+        <div className='w-50 mx-auto mt-5'>
+           <h1 className='mb-5 border-bottom'>Stock Updates</h1>
+           <div className='mb-5 border-bottom'>
+           <h3 className='mt-5 d-flex justify-content-between'> <span>Product name: </span> <span>{stockProduct.title}</span> </h3>
+           <h3 className='mt-2 d-flex justify-content-between'> <span>Physical Stock:</span> <span>{stockProduct.stock}</span></h3>
+           </div>
+           <div className='mt-5 mb-5 d-flex justify-content-between border-bottom'>
+            <Form.Group className="mb-1" controlId="formBasicCheckbox">
+                <Form.Check onChange={()=>setPermitted(!permitted)} type="checkbox" className={`ps ${permitted ? 'text-primary' : 'text-warning'}`} label="Are you want to Update value of Physical Stock?" />
+            </Form.Group>
+            <h3 disabled={!permitted} className={`ps ${permitted ? 'text-primary' : 'text-warning'}`}>yes</h3>
+            </div>
            
-           <div className='mb-5'>
-           <button onClick={()=>handleUpdateStock(stockProduct._id)} className='btn btn-primary'>UpdateStock</button>
-            <h3>Total Stock: {stockProduct.stock}</h3>
-            <button onClick={()=>handleDeliverStock(stockProduct._id)}  className='btn btn-primary'>Delivered Product</button>
+           <div className='mt-5 mb-5 d-flex justify-content-between'>
+                <button onClick={handleProceedHome}  className='btn btn-primary'>Back to Home</button>
+                <button disabled={!permitted} onClick={()=>handleProceedStock(stockProduct._id)}  className='btn btn-primary'>Proceed Update</button>
            </div>
         </div>
     );
