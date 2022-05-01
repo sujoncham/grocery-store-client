@@ -39,8 +39,19 @@ const UpdateStock = () => {
             </div>
            
            <div className='mt-5 mb-5 d-flex justify-content-between'>
-                <button onClick={handleProceedHome}  className='btn btn-primary'>Back to Home</button>
-                <button disabled={!permitted} onClick={()=>handleProceedStock(stockProduct._id)}  className='btn btn-primary'>Proceed Update</button>
+                <button 
+                    onClick={handleProceedHome}  
+                    className='btn btn-primary'
+                    >
+                    Back to Home
+                </button>
+                <button 
+                    disabled={!permitted} 
+                    onClick={()=>handleProceedStock(stockProduct._id)} 
+                    className='btn btn-primary'
+                    >
+                    Proceed to Update
+                </button>
            </div>
         </div>
     );

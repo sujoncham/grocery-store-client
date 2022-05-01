@@ -12,7 +12,7 @@ const StockTable = ({ store, index }) => {
     if (confirmDelete) {
       const url = `http://localhost:5000/inventory/${id}`;
       fetch(url, {
-        method: "DELETE",
+        method: "DELETE"
       })
         .then((res) => res.json())
         .then((data) => {
@@ -24,7 +24,7 @@ const StockTable = ({ store, index }) => {
   };
 
   const handleEditNavigate = (id) =>{
-    navigate(`/inventory/${id}`)
+    navigate(`/updateData/${id}`)
 }
 
   return (
@@ -34,14 +34,9 @@ const StockTable = ({ store, index }) => {
       <td>{price}</td>
       <td>{stock}</td>
       <td>
-      <button onClick={()=>handleEditNavigate(_id)} className='btn btn-primary'>see detail</button>
+      <button onClick={()=>handleEditNavigate(_id)} className='btn btn-primary'>Edit</button>
         ||
-        <button
-          onClick={() => handleDeleteStock(_id)}
-          className="btn btn-primary"
-        >
-          Delete
-        </button>
+        <button onClick={() => handleDeleteStock(_id)} className="btn btn-primary">Delete</button>
       </td>
     </tr>
   );
