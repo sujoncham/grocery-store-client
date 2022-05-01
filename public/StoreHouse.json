@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Rice",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/GFqqJMN/rice.jpg"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Masala",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/y5YX5YM/masala.jpg"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "Sugar",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/y06fmdh/sugar.jpg"
@@ -30,7 +30,7 @@
     "id": 4,
     "title": "Photato",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/D5RCcJT/photato.jpg"
@@ -39,7 +39,7 @@
     "id": 5,
     "title": "Flour",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/xD8VtvR/flour.jpg"
@@ -48,7 +48,7 @@
     "id": 6,
     "title": "Mustard Oil",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/bm7brnt/oil.jpg"
@@ -57,7 +57,7 @@
     "id": 7,
     "title": "Onion",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/wdMRXSZ/onion.jpg"
@@ -66,7 +66,7 @@
     "id": 8,
     "title": "Onion",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/wdMRXSZ/onion.jpg"
@@ -75,7 +75,7 @@
     "id": 9,
     "title": "Lentil",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/Ptzt0XY/lentil.jpg"
@@ -84,7 +84,7 @@
     "id": 10,
     "title": "Garlic",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/71btszS/garlic.jpg"
@@ -93,7 +93,7 @@
     "id": 11,
     "title": "Egg",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/wJK2Vw3/egg.jpg"
@@ -102,7 +102,7 @@
     "id": 12,
     "title": "Ginger",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/BP2P9jx/ginger.jpg"
@@ -111,7 +111,7 @@
     "id": 13,
     "title": "Milk",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/HPKMyJD/milk.jpg"
@@ -120,7 +120,7 @@
     "id": 14,
     "title": "Salt",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/hKjZ5Zz/salt.jpg"
@@ -129,7 +129,7 @@
     "id": 15,
     "title": "Saop",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/nLVJkZq/saop.jpg"
@@ -138,7 +138,7 @@
     "id": 16,
     "title": "Tea",
     "price": 60,
-    "stock": "2000kg",
+    "stock": "150",
     "dealer": "Modern rice miles",
     "descrip": "Modern rice miles",
     "img": "https://i.ibb.co/dr0whJx/tea.jpg"

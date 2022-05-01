@@ -8,7 +8,7 @@ const useStockHouse = () => {
         .then(data => setStores(data));
     }, []);
 
-   return [stores];
+   return [stores, setStores];
    
 }
 
