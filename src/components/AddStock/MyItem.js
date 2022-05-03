@@ -31,6 +31,11 @@ const MyItem = () => {
     return (
         <div>
             <h1>Hellow, Deliver: {deliver.length}</h1>
+            <div>
+                <p>Email : {user.email}</p>
+                <p>Product : {deliver.title}</p>
+                <p>Stock : {deliver.stock}</p>
+            </div>
         </div>
     );
 };
