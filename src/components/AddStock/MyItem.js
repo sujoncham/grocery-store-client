@@ -7,7 +7,7 @@ import axiosPrivate from '../AuthenLogin/axiosPrivate';
 
 const MyItem = () => {
     const [user] = useAuthState(auth)
-    const [deliver, setDeliver] = useState([]);
+    const [delivers, setDelivers] = useState([]);
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -16,7 +16,7 @@ const MyItem = () => {
             const url = `https://dry-oasis-82123.herokuapp.com/deliver?email=${email}`;
          try{
             const {data} = await axiosPrivate.get(url);
-            setDeliver(data);
+            setDelivers(data);
          } 
          catch(error){
             console.log(error);
@@ -27,15 +27,20 @@ const MyItem = () => {
          }
         }
         getDeliver();
-    }, [user])
+    }, [])
     return (
-        <div>
-            <h1>Hellow, Deliver: {deliver.length}</h1>
-            <div>
-                <p>Email : {user.email}</p>
-                <p>Product : {deliver.title}</p>
-                <p>Stock : {deliver.stock}</p>
-            </div>
+        <div className='container'>
+        <div className='row'>
+            <h1>{user.email}: {delivers.length}</h1>
+            {
+                delivers.map(deliver => <div key={deliver._id} deliver={deliver}>
+                    
+                    <p>Product : {deliver.title}</p>
+                    <p>Stock : {deliver.stock}</p>
+                </div> )
+            }
+            
+        </div>
         </div>
     );
 };
