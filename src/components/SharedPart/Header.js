@@ -11,9 +11,9 @@ const Header = () => {
         signOut(auth);
     }
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top'>
             <Container>
-            <Navbar.Brand href="#home">Store Management System</Navbar.Brand>
+            <Navbar.Brand href="#home"> <img style={{width:40}} src="https://i.ibb.co/Rjw2Vy5/logo.png" alt="" /><span className='m-1'>Modina Grocery Store</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 

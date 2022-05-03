@@ -21,6 +21,7 @@ const StockList = () => {
                 <th>Product name</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>Entried By</th>
                 <th>Action</th>
               </tr>
             </thead>

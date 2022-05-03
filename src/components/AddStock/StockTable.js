@@ -1,9 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import auth from "../../Firebase/Firebase.init";
 import useStockHouse from "../../hooks/useStockHouse";
 
 const StockTable = ({ store, index }) => {
+  const [user] = useAuthState(auth);
   const { _id, title, price, stock } = store;
   const [stores, setStores] = useStockHouse();
   const navigate = useNavigate();
@@ -35,6 +38,7 @@ const StockTable = ({ store, index }) => {
       <td>{title}</td>
       <td>{price}</td>
       <td>{stock}</td>
+      <td>{user?.displayName.slice(0, 6)}</td>
       <td>
       <button onClick={()=>handleEditNavigate(_id)} className='btn btn-primary'>Edit</button>
         ||

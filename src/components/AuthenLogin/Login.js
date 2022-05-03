@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import {
@@ -9,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../Firebase/Firebase.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../SharedPart/Loading";
 import "./Authenticate.css";
 import SocialLogin from "./SocialLogin";
@@ -20,6 +20,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [token] = useToken(user);
 
   let from = location.state?.from?.pathName || "/";
 
@@ -32,8 +33,8 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
-  if (user) {
-    // navigate(from, {replace:true});
+  if (token) {
+    navigate(from, {replace:true});
   }
 
   const handleLoginSubmit = async (event) => {
@@ -41,9 +42,7 @@ const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post("https://dry-oasis-82123.herokuapp.com/login", { email });
-    localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
+    
   };
 
   const handleResetPassword = async (event) => {
