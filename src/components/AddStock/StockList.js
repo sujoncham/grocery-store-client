@@ -40,7 +40,7 @@ const StockList = () => {
           <div className="col-md-12 d-flex justify-content-between align-items-center mt-5 mb-4">
           <h1>Stock List</h1> <Link to='/addStock'> <button className="btn btn-primary">Add Stock</button> </Link>
           </div>
-        <div className="col-md-12">
+        <div className="col-md-12 mb-5">
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -63,9 +63,8 @@ const StockList = () => {
                     <td>{store.stock}</td>
                     <td>{user?.displayName.slice(0, 6)}</td>
                     <td>
-                    <button onClick={()=>handleEditNavigate(store._id)} className='btn btn-primary'>Edit</button>
-                      ||
-                      <button onClick={()=>handleDeleteStock(store._id)} className="btn btn-primary">Delete</button>
+                    <span style={{cursor: 'pointer'}} onClick={()=>handleEditNavigate(store._id)} className='text-warning border border-primary ps-1 pe-1 me-1'>Edit</span>
+                      <span style={{cursor: 'pointer'}} onClick={()=>handleDeleteStock(store._id)} className='text-danger border border-primary ps-2 pe-2 cursor-pointer'><i class="fa fa-trash"></i></span>
                     </td>
                   </tr>
               

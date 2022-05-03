@@ -5,3 +5,20 @@
   justify-content: center;
   align-items: center;
 }
+
+.social-link a {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  background-color: #089e60;
+  border-radius: 5px;
+}
+
+.social-link a i {
+  font-size: 25px;
+  color: #fff;
+}
+
+.social-link a:hover {
+  background-color: #cab70b;
+}
