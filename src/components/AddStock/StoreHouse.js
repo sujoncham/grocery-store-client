@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './product.css';
 
-const StoreProduct = () => {
+const StoreHouse = () => {
     const [stores, setStores] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
@@ -11,7 +11,7 @@ const StoreProduct = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('http://localhost:5000/productCount/')
+        fetch('https://dry-oasis-82123.herokuapp.com/productCount/')
         .then(res => res.json())
         .then(data => {
             const count = data.count;
@@ -21,7 +21,7 @@ const StoreProduct = () => {
     }, [])
 
     useEffect(()=>{
-        const url = `http://localhost:5000/inventory?page=${page}&size=${size}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory?page=${page}&size=${size}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setStores(data));
@@ -67,4 +67,4 @@ const StoreProduct = () => {
     );
 };
 
-export default StoreProduct;
+export default StoreHouse;

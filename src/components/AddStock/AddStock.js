@@ -15,7 +15,7 @@ const AddStock = () => {
         console.log(stockInfo);
 
         // post data
-        const url = `http://localhost:5000/inventory`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {

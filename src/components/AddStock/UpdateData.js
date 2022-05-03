@@ -11,7 +11,7 @@ const UpdateData = () => {
 
     const [singleStock, setSingleStock] = useState({});
     useEffect(()=>{
-        const url = `http://localhost:5000/inventory/${updateDataeId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataeId}`;
         fetch(url)
         .then(res =>res.json())
         .then(result => setSingleStock(result));
@@ -29,7 +29,7 @@ const UpdateData = () => {
         console.log(stockUpdateInfo);
 
         // post data
-        const url = `http://localhost:5000/inventory/${updateDataeId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataeId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

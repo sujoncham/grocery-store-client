@@ -12,7 +12,7 @@ const SingleStockUpdate = () => {
     const [singleStock, setSingleStock] = useState({});
 
     useEffect(()=>{
-        const url = `http://localhost:5000/inventory/${inventorySingleId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${inventorySingleId}`;
         fetch(url)
         .then(res =>res.json())
         .then(result => {
@@ -32,7 +32,7 @@ const SingleStockUpdate = () => {
         console.log(stockUpdateInfo);
 
         // post data
-        const url = `http://localhost:5000/inventory/${inventorySingleId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${inventorySingleId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -48,7 +48,6 @@ const SingleStockUpdate = () => {
             const remainStock = stockValue.filter((stock) => stock.stock !== stock);
             setSingleStock(remainStock);
         });
-
     }
 
     const handleStockUpdateInput = event =>{
@@ -69,7 +68,7 @@ const SingleStockUpdate = () => {
             stockId: inventorySingleId
         }
 
-        axios.post('http://localhost:5000/deliver/', deliver)
+        axios.post('https://dry-oasis-82123.herokuapp.com/deliver/', deliver)
         .then(response => {
             console.log(response);
             toast("Delivered data successfully");
@@ -87,12 +86,12 @@ const SingleStockUpdate = () => {
                 <div className='col-12 col-sm-12 col-md-6 col-lg-6 offset-md-2 offset-lg-2'>
                     
                     <Form className='d-flex flex-column' onSubmit={handleSingleStock}>
-                        <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} disabled />
-                        <input className='mb-2 p-1' type="text" name="price" value={singleStock.price} disabled />
+                        <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} readOnly disabled />
+                        <input className='mb-2 p-1' type="text" name="price" value={singleStock.price} readOnly disabled />
                         <input className='mb-2 p-1' type="number" min="1" max={singleStock.stock} value={singleStock.stock} onChange={handleStockUpdateInput} name="stock" />
-                        <input className='mb-2 p-1' type="text" name="dealer" value={singleStock.dealer} disabled />
-                        <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} disabled />
-                        <textarea type="text" name="descrip" value={singleStock.descrip} disabled />
+                        <input className='mb-2 p-1' type="text" name="dealer" value={singleStock.dealer} readOnly disabled />
+                        <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} readOnly disabled />
+                        <textarea type="text" name="descrip" value={singleStock.descrip} readOnly disabled />
                         <input type="submit" className="btn btn-primary mt-4 mb-5" value='Update Stock' />
                     </Form>
                    
@@ -100,9 +99,9 @@ const SingleStockUpdate = () => {
 
                 <div className='col-12 col-sm-12 col-md-4 col-lg-4'>
                     <Form className='d-flex flex-column' onSubmit={handleDeliver}>
-                        <input className='mb-2 p-1' type="text" name="title" value={user.email} disabled />
-                        <input className='mb-2 p-1' type="text" name="price" value={singleStock.title} disabled />
-                        <input className='mb-2 p-1' type="text" name="stock" value={singleStock.stock} disabled />
+                        <input className='mb-2 p-1' type="text" name="title" value={user.email} readOnly disabled />
+                        <input className='mb-2 p-1' type="text" name="price" value={singleStock.title} readOnly disabled />
+                        <input className='mb-2 p-1' type="text" name="stock" value={singleStock.stock} readOnly disabled />
                 
                         <input type="submit" className="btn btn-primary mt-4 mb-5" value='Deliver Stock' />
                     </Form>

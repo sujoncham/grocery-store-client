@@ -26,6 +26,7 @@ const Header = () => {
                     {
                     user && <>
                         <Nav.Link as={Link} to="/stockList">StockList</Nav.Link>
+                        <Nav.Link as={Link} to="/myItem">MyItem</Nav.Link>
                     </> 
                     }
                     <p className='text-white mt-2'>{user?.displayName && user.displayName.slice(0, 6)}</p>

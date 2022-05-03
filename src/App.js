@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddStock from "./components/AddStock/AddStock";
+import MyItem from "./components/AddStock/MyItem";
 import SingleStockUpdate from "./components/AddStock/SingleStockUpdate";
 import StockDeliver from "./components/AddStock/StockDeliver";
 import StockList from "./components/AddStock/StockList";
@@ -50,6 +51,11 @@ function App() {
           <Route path="/updateData/:updateDataeId" element={
             <RequireAuth>
               <UpdateData></UpdateData>
+            </RequireAuth>
+          }></Route>
+          <Route path="/myItem/" element={
+            <RequireAuth>
+              <MyItem></MyItem>
             </RequireAuth>
           }></Route>
         <Route path="*" element={<Page404></Page404>}></Route>

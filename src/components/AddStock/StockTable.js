@@ -11,7 +11,7 @@ const StockTable = ({ store, index }) => {
   const handleDeleteStock = (id) => {
     const confirmDelete = window.confirm("Are you want to delete this Stock!!");
     if (confirmDelete) {
-      const url = `http://localhost:5000/inventory/${id}`;
+      const url = `https://dry-oasis-82123.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "DELETE"
       })

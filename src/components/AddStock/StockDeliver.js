@@ -8,7 +8,7 @@ const UpdateStock = () => {
     const [permitted, setPermitted] = useState(false);
     const [stockProduct, setStockProduct] = useState({});
     useEffect(()=>{
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${inventoryId}`;
         fetch(url)
         .then(res =>res.json())
         .then(result => setStockProduct(result));
