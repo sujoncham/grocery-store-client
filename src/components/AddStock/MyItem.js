@@ -31,9 +31,9 @@ const MyItem = () => {
     return (
         <div className='container'>
         <div className='row'>
-            <h1 className='border-bottom mt-3 mb-4'>{user.email}: {delivers.length}</h1>
+            <h1 className='border-bottom mt-3 mb-4'>{user.email} : {delivers.length}</h1>
             {
-                delivers.map(deliver => <div className='col-12 col-sm-12 col-md-4 col-lg-4' key={deliver._id} deliver={deliver}>
+                delivers.map(deliver => <div className='col-12 col-sm-12 col-md-4 col-lg-4 border p-3 m-3' key={deliver._id} deliver={deliver}>
                     
                     <h3>Product : {deliver.title}</h3>
                     <p>Stock : {deliver.stock}</p>
