@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const AddStock = () => {
     const handleAddStock = (event) =>{
@@ -41,11 +41,11 @@ const AddStock = () => {
                         <input className='mb-3' type="text" name="price" placeholder='Product price' />
                         <input className='mb-3' type="text" name="stock" placeholder='Add stock' />
                         <input className='mb-3' type="text" name="dealer" placeholder='Dealer name' />
-                        <input className='mb-3' type="text" name="img" placeholder='Image link' />
+                        <input className='mb-3' type="text" name="img" autoComplete='off' placeholder='Image link' />
                         <textarea type="text" name="descrip" placeholder='Stock Description' />
                         <input type="submit" className="btn btn-primary mt-4 mb-5" value='Add Stock' />
                     </Form>
-                    <ToastContainer></ToastContainer>
+                   
                 </div>
             </div>
         </div>

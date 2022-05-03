@@ -3,11 +3,8 @@ import StoreHouse from '../AddStock/StoreHouse';
 
 const Products = () => {
     return (
-        <div className='container'>
-        <div className='row'>
-            <h1>Inventory Page</h1>
+        <div className='inventory'>
             <StoreHouse></StoreHouse>
-        </div>
         </div>
     );
 };

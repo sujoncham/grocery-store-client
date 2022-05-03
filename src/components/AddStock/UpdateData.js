@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 
 const UpdateData = () => {
@@ -49,7 +49,7 @@ const UpdateData = () => {
             <div className='row'>
                 <div className='w-75 mx-auto d-flex justify-content-between border-bottom'>
                 <h3>User Id: {user.email}</h3>
-                <h3 className='text-primary'>Update: {singleStock.title}</h3>
+                <h3 className='text-primary'>{singleStock.title}</h3>
                 </div>
                 <div className='w-75 mx-auto'>
                 <Link to='/stockList'>
@@ -62,14 +62,14 @@ const UpdateData = () => {
                     <h4>Update Stock Item</h4>
                     <Form className='d-flex flex-column' onSubmit={handleSingleStock}>
                         <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} />
-                        <input className='mb-2 p-1' type="text" name="price" placeholder='add price' />
-                        <input className='mb-2 p-1' type="number" name="stock" placeholder='add stock' />
-                        <input className='mb-2 p-1' type="text" name="dealer" placeholder='add dealer' />
-                        <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} />
+                        <input className='mb-2 p-1' type="text" name="price" placeholder='add price' autoComplete='off' />
+                        <input className='mb-2 p-1' type="text" name="stock" placeholder='add stock' autoComplete='off' />
+                        <input className='mb-2 p-1' type="text" name="dealer" placeholder='add dealer' autoComplete='off' />
+                        <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} autoComplete='off' />
                         <textarea type="text" name="descrip" placeholder='add description' />
                         <input type="submit" className="btn btn-primary mt-4 mb-5" value='Update Stock' />
                     </Form>
-                    <ToastContainer></ToastContainer>
+                    
                 </div>
             </div>
         </div>

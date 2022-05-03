@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../Firebase/Firebase.init';
 import Loading from '../SharedPart/Loading';
@@ -20,27 +21,29 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
 
       const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
       let from = location.state?.from?.pathName || '/';
 
     let errorHandle;
     if (error) {
         errorHandle = <p className='text-danger'>Error: {error.message}</p>
       }
+
       if (loading || sending) {
         return <Loading></Loading>
       }
 
       if(user){
-        navigate(from, {replace:true});
+        // navigate(from, {replace:true});
       }
       
-      const handleLoginSubmit = event =>{
+      const handleLoginSubmit = async event =>{
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password)
-
+       await signInWithEmailAndPassword(email, password)
+       const {data} = await axios.post('http://localhost:5000/login', {email});
+       localStorage.setItem('accessToken', data.accessToken);
+       navigate(from, {replace:true});
       }
 
       const handleResetPassword = async (event) =>{
@@ -82,7 +85,7 @@ const Login = () => {
             <p className='text-center d-block mb-3 mt-3'>New user at Ware Houe? Please <Link to="/register">Register</Link> here</p>
             
             <SocialLogin></SocialLogin>
-            <ToastContainer />
+           
             </div>
         </div>
         </div>

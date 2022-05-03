@@ -8,52 +8,48 @@ const Banner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/WkF87ZV/banner-2.jpg"
+          src="https://i.ibb.co/whsT19B/banner-8.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          {/* <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/nQGrmXs/banner-3.jpg"
+          src="https://i.ibb.co/D4G7FVL/banner-7.jpg"
           alt="Second slide"
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          {/* <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/qjn3Zq2/banner-1.jpg"
+          src="https://i.ibb.co/cxLd5nm/banner-5.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          {/* <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/JQsjhxB/banner-4.jpg"
+          src="https://i.ibb.co/jRBvPmV/banner-6.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          {/* <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque</p> */}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

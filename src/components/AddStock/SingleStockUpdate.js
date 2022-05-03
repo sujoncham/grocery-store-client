@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 
 const SingleStockUpdate = () => {
@@ -14,7 +15,9 @@ const SingleStockUpdate = () => {
         const url = `http://localhost:5000/inventory/${inventorySingleId}`;
         fetch(url)
         .then(res =>res.json())
-        .then(result => setSingleStock(result));
+        .then(result => {
+            setSingleStock(result)
+        });
     }, [inventorySingleId]);
 
     const handleSingleStock = (event) =>{
@@ -44,7 +47,8 @@ const SingleStockUpdate = () => {
             const stockValue = event.target.stock.value;
             const remainStock = stockValue.filter((stock) => stock.stock !== stock);
             setSingleStock(remainStock);
-        })
+        });
+
     }
 
     const handleStockUpdateInput = event =>{
@@ -56,22 +60,32 @@ const SingleStockUpdate = () => {
         console.log(newStockData);
     }
 
-    const handleDelivered = () =>{
-        setSingleStock(singleStock.stock - 1);
-    }
+    const handleDeliver = (event) =>{
+        event.preventDefault();
+        const deliver = {
+            email: user.email,
+            title: singleStock.title,
+            stock: singleStock.stock,
+            stockId: inventorySingleId
+        }
 
+        axios.post('http://localhost:5000/deliver/', deliver)
+        .then(response => {
+            console.log(response);
+            toast("Delivered data successfully");
+        })
+    }
 
     return (
         <div className='container'>
             <div className='row'>
-                <div className='w-75'>
-                <p>{singleStock.stock}</p>
-                <button className='btn btn-primary' onClick={handleDelivered}>delivered</button>
+                <h2>User Id : {user.email}</h2>
+                <div className='d-flex justify-content-between'>
+                    <h3 className='mt-3 mb-3 border-bottom'>{singleStock.title}</h3>
+                    <h3 className='mt-3 mb-3 border-bottom'>stock- {singleStock.stock}</h3>
                 </div>
-                <div className='w-50 mx-auto'>
-                    <h2>User Id : {user.email}</h2>
-                <h1 className='mt-3 mb-3 border-bottom'>Product Name: {singleStock.title} stock- {singleStock.stock}</h1>
-                    <h4>Update Stock Item</h4>
+                <div className='col-12 col-sm-12 col-md-6 col-lg-6 offset-md-2 offset-lg-2'>
+                    
                     <Form className='d-flex flex-column' onSubmit={handleSingleStock}>
                         <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} disabled />
                         <input className='mb-2 p-1' type="text" name="price" value={singleStock.price} disabled />
@@ -81,8 +95,19 @@ const SingleStockUpdate = () => {
                         <textarea type="text" name="descrip" value={singleStock.descrip} disabled />
                         <input type="submit" className="btn btn-primary mt-4 mb-5" value='Update Stock' />
                     </Form>
-                    <ToastContainer></ToastContainer>
+                   
                 </div>
+
+                <div className='col-12 col-sm-12 col-md-4 col-lg-4'>
+                    <Form className='d-flex flex-column' onSubmit={handleDeliver}>
+                        <input className='mb-2 p-1' type="text" name="title" value={user.email} disabled />
+                        <input className='mb-2 p-1' type="text" name="price" value={singleStock.title} disabled />
+                        <input className='mb-2 p-1' type="text" name="stock" value={singleStock.stock} disabled />
+                
+                        <input type="submit" className="btn btn-primary mt-4 mb-5" value='Deliver Stock' />
+                    </Form>
+                </div>
+               
             </div>
         </div>
     );

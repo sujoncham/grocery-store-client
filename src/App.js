@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddStock from "./components/AddStock/AddStock";
 import SingleStockUpdate from "./components/AddStock/SingleStockUpdate";
+import StockDeliver from "./components/AddStock/StockDeliver";
 import StockList from "./components/AddStock/StockList";
 import UpdateData from "./components/AddStock/UpdateData";
-import UpdateStock from "./components/AddStock/UpdateStock";
 import Login from "./components/AuthenLogin/Login";
 import Register from "./components/AuthenLogin/Register";
 import RequireAuth from "./components/AuthenLogin/RequireAuth";
@@ -40,7 +41,7 @@ function App() {
             </RequireAuth>
           } ></Route>
         
-        <Route path="/inventory/:inventoryId" element={ <UpdateStock></UpdateStock>} ></Route>
+        <Route path="/inventory/:inventoryId" element={ <StockDeliver></StockDeliver>} ></Route>
         <Route path="/singleStock/:inventorySingleId" element={
             <RequireAuth>
               <SingleStockUpdate></SingleStockUpdate>
@@ -54,6 +55,7 @@ function App() {
         <Route path="*" element={<Page404></Page404>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
