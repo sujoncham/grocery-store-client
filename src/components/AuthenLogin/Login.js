@@ -22,7 +22,7 @@ const Login = () => {
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const [token] = useToken(user);
 
-  let from = location.state?.from?.pathName || "/";
+  let from = location.state?.from?.pathname || "/";
 
   let errorHandle;
   if (error) {

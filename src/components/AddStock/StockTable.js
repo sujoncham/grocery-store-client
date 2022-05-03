@@ -16,13 +16,13 @@ const StockTable = ({ store, index }) => {
     if (confirmDelete) {
       const url = `https://dry-oasis-82123.herokuapp.com/inventory/${id}`;
       fetch(url, {
-        method: "DELETE"
+        method: 'DELETE'
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => res.json())
+        .then(data => {
           console.log("delete successfully", data);
-          const remainingStock = stores.filter((store) => store._id !== id);
-          setStores(remainingStock);
+          const result = stores.filter(store => store._id !== id);
+          setStores(result);
           toast("Product deleted successfully");
         });
     }
@@ -42,7 +42,7 @@ const StockTable = ({ store, index }) => {
       <td>
       <button onClick={()=>handleEditNavigate(_id)} className='btn btn-primary'>Edit</button>
         ||
-        <button onClick={() => handleDeleteStock(_id)} className="btn btn-primary">Delete</button>
+        <button onClick={()=>handleDeleteStock(store._id)} className="btn btn-primary">Delete</button>
       </td>
     </tr>
   );

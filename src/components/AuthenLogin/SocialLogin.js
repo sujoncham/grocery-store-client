@@ -12,7 +12,7 @@ const SocialLogin = () => {
   const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
   const [token] = useToken(googleUser || gitUser);
   
-  let from = location.state?.from?.pathName || '/';
+  let from = location.state?.from?.pathname || "/";
   
   let errorElement;
   if (error || gitError) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../SharedPart/Loading';
@@ -10,7 +10,7 @@ import SocialLogin from './SocialLogin';
 const Register = () => {
     const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
-    // const location = useLocation();
+    const location = useLocation();
     const [
         createUserWithEmailAndPassword,
         user,
@@ -20,7 +20,7 @@ const Register = () => {
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
       const [token] = useToken(user);
 
-    //   let from = location.state?.from?.pathName || '/';
+      let from = location.state?.from?.pathname || "/";
 
       let errorHandle;
       if (error || updateError) {
@@ -32,7 +32,7 @@ const Register = () => {
       }
 
       if(token){
-        navigate('/');
+        navigate(from, {replace:true});
       }
 
       const handleSubmitForm = async (event) =>{

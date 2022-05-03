@@ -36,7 +36,7 @@ const StoreHouse = () => {
             <h1 className='mt-5 mb-5 text-center'>Inventory Stock : {stores.length}</h1>
             
             {
-                stores.map(store => <div key={store._id} className='col-12 col-sm-12 col-md-3 col-lg-3 mb-5'>
+                stores.map(store => <div key={store._id} store={store} className='col-12 col-sm-12 col-md-3 col-lg-3 mb-5'>
                     <div className='product-item'>
                         <img src={store.img} alt="" />
                         <div className='product-title'>
