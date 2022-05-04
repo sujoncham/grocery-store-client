@@ -1,13 +1,13 @@
 # Grocery Store Management
 
-- This is assignment no-11. Topic was store management system. According to the topic, I have chosen a topic about grocery store management system.
+- This is assignment no-11. Topic was store management system. According to the topic, I have chosen a topic about grocery store management system. To build this requirement website using `React Js`, `firebase`, `react router`, `react bootstrap`, `react-firebase-hook`, `nodemon`, `Jwt`, `axios`, `node Js`, `express Js`, `mongodb` etc.
 
 ## Requirement Links:
 
 - Client-side repo : (https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-sujoncham)
 - Server-side repo : (https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-sujoncham)
 - Website link : (https://warehouse-management-ser-f94b6.web.app)
-- StackOverFlow link : (https://stackoverflow.com/questions/72108095/in-2030-javascript-more-challenge-to-learn-for-beginner)
+- StackOverFlow link : (https://stackoverflow.com/questions/72085284/how-can-i-extract-keys-and-values-from-a-nested-object-of-objects/72085664#72085664)
 
 ## project developing requirements
 
@@ -54,12 +54,16 @@
 - In About page, added about myself and picture
 - In Inventory page, added inventory data
 - In Blog page, added four questions answer
-- ----------- after login
+- Footer Section also added
+- deploy in firebase and server is heroku
+- database is mongodb
+- ----------- after login -----------
 - figureout three option - stocklist, myItem, signout
-- In StockList page, product list for delete and edit
-- In myItem page, Product delivered user id with product(indivisual record)
+- In StockList page, product list for delete and edit and also Add Item option
+- In myItem page, Product delivered user id with product item(indivisual record)
+-
 
 ## Project Restricted
 
 - without login you can not add product, update, edit, delete
-- need email verification, or if socially register no need to email verify
+- have to email verification, or if socially register no need to email verify
