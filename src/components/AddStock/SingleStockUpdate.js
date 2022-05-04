@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 
@@ -10,6 +10,8 @@ const SingleStockUpdate = () => {
     const {inventorySingleId} = useParams();
     const [user] = useAuthState(auth);
     const [singleStock, setSingleStock] = useState({});
+    const [agree, setAgree] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const url = `https://dry-oasis-82123.herokuapp.com/inventory/${inventorySingleId}`;
@@ -75,15 +77,21 @@ const SingleStockUpdate = () => {
         })
     }
 
+    const backPreviouspage = (id)=>{
+        navigate('/inventory');
+    }
+
     return (
         <div className='container'>
             <div className='row'>
-                <h2>User Id : {user.email}</h2>
-                <div className='d-flex justify-content-between'>
-                    <h3 className='mt-3 mb-3 border-bottom'>{singleStock.title}</h3>
-                    <h3 className='mt-3 mb-3 border-bottom'>stock- {singleStock.stock}</h3>
+                <div className='col-12 col-sm-12 col-md-12 col-lg-12'>
+                    <h4 className='mt-3'>User Id : {user.email}</h4>
+                    <div className='d-flex justify-content-between'>
+                        <h3 className='mt-3 mb-3 border-bottom'>{singleStock.title} / stock- {singleStock.stock}</h3>
+                        <button onClick={()=>backPreviouspage(singleStock._id)} className='btn btn-primary mb-2'> <i className="fa fa-arrow-left"></i> Back</button>
+                    </div>
                 </div>
-                <div className='col-12 col-sm-12 col-md-6 col-lg-6 offset-md-2 offset-lg-2'>
+                <div className='col-12 col-sm-12 col-md-6 col-lg-6'>
                     
                     <Form className='d-flex flex-column' onSubmit={handleSingleStock}>
                         <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} readOnly disabled />
@@ -92,10 +100,11 @@ const SingleStockUpdate = () => {
                         <input className='mb-2 p-1' type="text" name="dealer" value={singleStock.dealer} readOnly disabled />
                         <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} readOnly disabled />
                         <textarea type="text" name="descrip" value={singleStock.descrip} readOnly disabled />
-                        <input type="submit" className="btn btn-primary mt-4 mb-5" value='Update Stock' />
+                        <input type="submit" onClick={()=>setAgree(!agree)} className={`btn btn-primary mt-4 mb-5 ${agree ? '' : 'text-white'}`} value='Update Stock' />
                     </Form>
                    
                 </div>
+                <div className='col-12 col-sm-12 col-md-2 col-lg-2'></div>
 
                 <div className='col-12 col-sm-12 col-md-4 col-lg-4'>
                     <Form className='d-flex flex-column' onSubmit={handleDeliver}>
@@ -103,7 +112,7 @@ const SingleStockUpdate = () => {
                         <input className='mb-2 p-1' type="text" name="price" value={singleStock.title} readOnly disabled />
                         <input className='mb-2 p-1' type="text" name="stock" value={singleStock.stock} readOnly disabled />
                 
-                        <input type="submit" className="btn btn-primary mt-4 mb-5" value='Deliver Stock' />
+                        <input disabled={!agree} type="submit" className="btn btn-primary mt-4 mb-5" value='Delivered' />
                     </Form>
                 </div>
                

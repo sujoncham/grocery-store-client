@@ -45,10 +45,10 @@ const StockList = () => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Product name</th>
+                <th>Product</th>
                 <th>Price</th>
                 <th>Stock</th>
-                <th>Entried By</th>
+                <th>EntryBy</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -63,8 +63,8 @@ const StockList = () => {
                     <td>{store.stock}</td>
                     <td>{user?.displayName.slice(0, 6)}</td>
                     <td>
-                    <span style={{cursor: 'pointer'}} onClick={()=>handleEditNavigate(store._id)} className='text-warning border border-primary ps-1 pe-1 me-1'>Edit</span>
-                      <span style={{cursor: 'pointer'}} onClick={()=>handleDeleteStock(store._id)} className='text-danger border border-primary ps-2 pe-2 cursor-pointer'><i class="fa fa-trash"></i></span>
+                    <span style={{cursor: 'pointer'}} onClick={()=>handleEditNavigate(store._id)} className='text-warning border border-primary me-1'>Edit</span>
+                      <span style={{cursor: 'pointer'}} onClick={()=>handleDeleteStock(store._id)} className='text-danger border border-primary ps-1 pe-1 cursor-pointer'><i class="fa fa-trash"></i></span>
                     </td>
                   </tr>
               

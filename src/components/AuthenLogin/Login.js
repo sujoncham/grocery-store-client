@@ -47,12 +47,9 @@ const Login = () => {
 
   const handleResetPassword = async (event) => {
     const email = event.target.value;
-    if (email) {
       await sendPasswordResetEmail(email);
       toast("Sent email");
-    } else {
-      toast("please, enter your email");
-    }
+    
   };
 
   return (
