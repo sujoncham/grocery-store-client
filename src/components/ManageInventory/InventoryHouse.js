@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './product.css';
+import './Inventory.css';
 
-const StoreHouse = () => {
+const InventoryHouse = () => {
     const [stores, setStores] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
@@ -30,6 +30,7 @@ const StoreHouse = () => {
     const handleNavigate = (id) =>{
         navigate(`/inventory/${id}`)
     }
+    
     return (
         <Container>
             <Row>
@@ -67,4 +68,4 @@ const StoreHouse = () => {
     );
 };
 
-export default StoreHouse;
+export default InventoryHouse;

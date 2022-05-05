@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
 import useStockHouse from "../../hooks/useStockHouse";
 
-const StockList = () => {
+const InventoryList = () => {
   const [user] = useAuthState(auth);
   const [stores, setStores] = useStockHouse();
 
@@ -38,7 +38,7 @@ const StockList = () => {
     <Container>
       <Row>
           <div className="col-md-12 d-flex justify-content-between align-items-center mt-5 mb-4">
-          <h1>Stock List</h1> <Link to='/addStock'> <button className="btn btn-primary">Add Stock</button> </Link>
+          <h1>Stock List</h1> <Link to='/AddInventory'> <button className="btn btn-primary">Add Stock</button> </Link>
           </div>
         <div className="col-md-12 mb-5">
           <Table striped bordered hover>
@@ -64,7 +64,7 @@ const StockList = () => {
                     <td>{user?.displayName.slice(0, 6)}</td>
                     <td>
                     <span style={{cursor: 'pointer'}} onClick={()=>handleEditNavigate(store._id)} className='text-warning border border-primary me-1'>Edit</span>
-                      <span style={{cursor: 'pointer'}} onClick={()=>handleDeleteStock(store._id)} className='text-danger border border-primary ps-1 pe-1 cursor-pointer'><i class="fa fa-trash"></i></span>
+                      <span style={{cursor: 'pointer'}} onClick={()=>handleDeleteStock(store._id)} className='text-danger border border-primary ps-1 pe-1 cursor-pointer'><i className="fa fa-trash"></i></span>
                     </td>
                   </tr>
               
@@ -77,4 +77,4 @@ const StockList = () => {
   );
 };
 
-export default StockList;
+export default InventoryList;

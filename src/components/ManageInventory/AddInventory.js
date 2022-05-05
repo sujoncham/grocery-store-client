@@ -2,8 +2,8 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-const AddStock = () => {
-    const handleAddStock = (event) =>{
+const AddInventory = () => {
+    const handleAddInventory = (event) =>{
         event.preventDefault();
         const title = event.target.title.value;
         const price = event.target.price.value;
@@ -36,7 +36,7 @@ const AddStock = () => {
             <div className='row'>
                 <div className='w-50 mx-auto'>
                     <h1>Add Stock Item</h1>
-                    <Form className='d-flex flex-column' onSubmit={handleAddStock}>
+                    <Form className='d-flex flex-column' onSubmit={handleAddInventory}>
                         <input className='mb-3' type="text" name="title" placeholder='Stock name' />
                         <input className='mb-3' type="text" name="price" placeholder='Product price' />
                         <input className='mb-3' type="text" name="stock" placeholder='Add stock' />
@@ -52,4 +52,4 @@ const AddStock = () => {
     );
 };
 
-export default AddStock;
+export default AddInventory;

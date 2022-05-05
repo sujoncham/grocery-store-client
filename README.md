@@ -58,8 +58,8 @@
 - deploy in firebase and server is heroku
 - database is mongodb
 - ----------- after login -----------
-- figureout three option - stocklist, myItem, signout
-- In StockList page, product list for delete and edit and also Add Item option
+- figureout three option - InventoryList, myItem, signout
+- In InventoryList page, product list for delete and edit and also Add Item option
 - In myItem page, Product delivered user id with product item(indivisual record)
 -
 

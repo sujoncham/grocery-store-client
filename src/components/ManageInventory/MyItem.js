@@ -26,7 +26,8 @@ const MyItem = () => {
          }
         }
         getDeliver();
-    }, [user])
+    }, [user]);
+    
     return (
         <div className='container mt-4'>
         <div className='row'>

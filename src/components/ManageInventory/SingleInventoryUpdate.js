@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 
-const SingleStockUpdate = () => {
+const SingleInventoryUpdate = () => {
     const {inventorySingleId} = useParams();
     const [user] = useAuthState(auth);
     const [singleStock, setSingleStock] = useState({});
@@ -78,7 +78,7 @@ const SingleStockUpdate = () => {
     }
 
     const backPreviouspage = (id)=>{
-        navigate('/inventory');
+        navigate(`/inventory/${id}`);
     }
 
     return (
@@ -121,4 +121,4 @@ const SingleStockUpdate = () => {
     );
 };
 
-export default SingleStockUpdate;
+export default SingleInventoryUpdate;

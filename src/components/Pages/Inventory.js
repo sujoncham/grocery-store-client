@@ -1,10 +1,10 @@
 import React from 'react';
-import StoreHouse from '../AddStock/StoreHouse';
+import InventoryHouse from '../ManageInventory/InventoryHouse';
 
 const Products = () => {
     return (
         <div className='inventory'>
-            <StoreHouse></StoreHouse>
+            <InventoryHouse></InventoryHouse>
         </div>
     );
 };

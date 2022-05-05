@@ -2,15 +2,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
-import AddStock from "./components/AddStock/AddStock";
-import MyItem from "./components/AddStock/MyItem";
-import SingleStockUpdate from "./components/AddStock/SingleStockUpdate";
-import StockDeliver from "./components/AddStock/StockDeliver";
-import StockList from "./components/AddStock/StockList";
-import UpdateData from "./components/AddStock/UpdateData";
 import Login from "./components/AuthenLogin/Login";
 import Register from "./components/AuthenLogin/Register";
 import RequireAuth from "./components/AuthenLogin/RequireAuth";
+import AddInventory from "./components/ManageInventory/AddInventory";
+import InventoryDataUpdate from "./components/ManageInventory/InventoryDataUpdate";
+import InventoryDeliver from "./components/ManageInventory/InventoryDeliver";
+import InventoryList from "./components/ManageInventory/InventoryList";
+import MyItem from "./components/ManageInventory/MyItem";
+import SingleInventoryUpdate from "./components/ManageInventory/SingleInventoryUpdate";
 import About from "./components/Pages/About";
 import Blog from "./components/Pages/Blog";
 import Home from "./components/Pages/Home";
@@ -31,26 +31,26 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
-        <Route path="/addStock" element={
+        <Route path="/AddInventory" element={
             <RequireAuth>
-              <AddStock></AddStock>
+              <AddInventory></AddInventory>
             </RequireAuth>
           } ></Route>
-        <Route path="/stockList" element={
+        <Route path="/InventoryList" element={
             <RequireAuth>
-              <StockList></StockList>
+              <InventoryList></InventoryList>
             </RequireAuth>
           } ></Route>
         
-        <Route path="/inventory/:inventoryId" element={ <StockDeliver></StockDeliver>} ></Route>
+        <Route path="/inventory/:inventoryId" element={ <InventoryDeliver></InventoryDeliver>} ></Route>
         <Route path="/singleStock/:inventorySingleId" element={
             <RequireAuth>
-              <SingleStockUpdate></SingleStockUpdate>
+              <SingleInventoryUpdate></SingleInventoryUpdate>
             </RequireAuth>
           }></Route>
-          <Route path="/updateData/:updateDataeId" element={
+          <Route path="/InventoryDataUpdate/:updateDataId" element={
             <RequireAuth>
-              <UpdateData></UpdateData>
+              <InventoryDataUpdate></InventoryDataUpdate>
             </RequireAuth>
           }></Route>
           <Route path="/myItem/" element={

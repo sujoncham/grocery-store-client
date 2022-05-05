@@ -5,17 +5,17 @@ import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 
-const UpdateData = () => {
-    const {updateDataeId} = useParams();
+const InventoryDataUpdate = () => {
+    const {updateDataId} = useParams();
     const [user] = useAuthState(auth);
 
     const [singleStock, setSingleStock] = useState({});
     useEffect(()=>{
-        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataeId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataId}`;
         fetch(url)
         .then(res =>res.json())
         .then(result => setSingleStock(result));
-    }, [updateDataeId]);
+    }, [updateDataId]);
 
     const handleSingleStock = (event) =>{
         event.preventDefault();
@@ -29,7 +29,7 @@ const UpdateData = () => {
         console.log(stockUpdateInfo);
 
         // post data
-        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataeId}`;
+        const url = `https://dry-oasis-82123.herokuapp.com/inventory/${updateDataId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -52,8 +52,8 @@ const UpdateData = () => {
                 <h3 className='text-primary'>{singleStock.title}</h3>
                 </div>
                 <div className='w-75 mx-auto'>
-                <Link to='/stockList'>
-                    <button className='btn btn-primary'>Back to StockList</button>
+                <Link to='/InventoryList'>
+                    <button className='btn btn-primary'>Back to InventoryList</button>
                 </Link>
                 </div>
                 
@@ -76,4 +76,4 @@ const UpdateData = () => {
     );
 };
 
-export default UpdateData;
+export default InventoryDataUpdate;
