@@ -24,7 +24,7 @@ const UpdateStock = () => {
 
     return (
         <div className='w-50 mx-auto mt-5'>
-           <h1 className='mb-5 border-bottom'>Stock Updates : {inventoryId}</h1>
+           <h1 style={{color: '#089e60'}} className='mb-5 border-bottom'>Stock Id : {inventoryId}</h1>
            <div className='mb-5 border-bottom'>
                 <h3 className='mt-5 d-flex justify-content-between'> <span>Product name: </span> <span>{stockProduct.title}</span> </h3>
                 <h3 className='mt-2 d-flex justify-content-between'> <span>Physical Stock:</span> <span>{stockProduct.stock}</span></h3>
@@ -37,10 +37,10 @@ const UpdateStock = () => {
             </div>
            
            <div className='mt-5 mb-5 d-flex justify-content-between'>
-                <button onClick={handleProceedHome} className='btn btn-primary' > 
+                <button onClick={handleProceedHome} className='btn btn-warning' > 
                 Back to Home
                 </button>
-                <button  disabled={!permitted} onClick={()=>handleProceedStock(stockProduct._id)} className='btn btn-primary' >
+                <button  disabled={!permitted} onClick={()=>handleProceedStock(stockProduct._id)} className='btn btn-warning' >
                     Proceed to Update
                 </button>
            </div>

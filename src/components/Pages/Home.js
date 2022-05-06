@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Contact from './Contact';
 
 const Home = () => {
     const [stores, setStores] = useState([]);
@@ -23,7 +24,7 @@ const Home = () => {
         <div className='home'>
             <Banner></Banner>
             <div className='container'>
-            <h1 className='mt-5 mb-3 text-center'>Inventory Product</h1>
+                <h1 className='mt-5 mb-3 text-center'>Inventory Product</h1>
                 <div className='row'>
                     {
                         homes.map(home => <div key={home._id} store={home} className='col-12 col-sm-12 col-md-3 col-lg-3 mb-5'>
@@ -42,6 +43,11 @@ const Home = () => {
                         </button>
                        </div>
                     
+                </div>
+                <div className="contact mt-5 mb-5">
+                    <h1 className='text-center mb-4'>Contact with us</h1>
+                    <p className='text-center mb-4'>Stay with service</p>
+                    <Contact></Contact>
                 </div>
             </div>
         </div>

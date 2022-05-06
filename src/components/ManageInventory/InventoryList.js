@@ -38,7 +38,7 @@ const InventoryList = () => {
     <Container>
       <Row>
           <div className="col-md-12 d-flex justify-content-between align-items-center mt-5 mb-4">
-          <h1>Stock List</h1> <Link to='/AddInventory'> <button className="btn btn-primary">Add Stock</button> </Link>
+          <h1>Stock List</h1> <Link to='/AddInventory'> <button className="btn btn-warning">Add Stock</button> </Link>
           </div>
         <div className="col-md-12 mb-5">
           <Table striped bordered hover>

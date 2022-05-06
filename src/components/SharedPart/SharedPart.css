@@ -4,3 +4,7 @@
   padding: 20px;
   color: #fff;
 }
+
+.menu a {
+  color: #ffc107 !important;
+}
