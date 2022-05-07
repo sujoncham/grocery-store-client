@@ -32,6 +32,7 @@
 - npm install cors
 - npm install mongodb
 - npm install nodemon
+- npm install dotenv
 
 ## MongoDb Database
 
@@ -57,6 +58,7 @@
 - Footer Section also added
 - deploy in firebase and server is heroku
 - database is mongodb
+- In contact Section, mail also sending.
 - ----------- after login -----------
 - figureout three option - InventoryList, myItem, signout
 - In InventoryList page, product list for delete and edit and also Add Item option

@@ -9,7 +9,6 @@ import useStockHouse from "../../hooks/useStockHouse";
 const InventoryList = () => {
   const [user] = useAuthState(auth);
   const [stores, setStores] = useStockHouse();
-
   const navigate = useNavigate();
 
   const handleDeleteStock = (id) => {

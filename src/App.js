@@ -6,6 +6,7 @@ import Login from "./components/AuthenLogin/Login";
 import Register from "./components/AuthenLogin/Register";
 import RequireAuth from "./components/AuthenLogin/RequireAuth";
 import AddInventory from "./components/ManageInventory/AddInventory";
+import EmailInfo from "./components/ManageInventory/EmailInfo";
 import InventoryDataUpdate from "./components/ManageInventory/InventoryDataUpdate";
 import InventoryDeliver from "./components/ManageInventory/InventoryDeliver";
 import InventoryList from "./components/ManageInventory/InventoryList";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
+        <Route path="/emailInfo" element={<EmailInfo></EmailInfo>}></Route>
         <Route path="/AddInventory" element={
             <RequireAuth>
               <AddInventory></AddInventory>
