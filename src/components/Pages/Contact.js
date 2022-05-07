@@ -60,7 +60,7 @@ const Contact = () => {
                     <Form.Label>Send your opinion</Form.Label>
                     <Form.Control as="textarea" name="detailMessage" rows={3} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="warning" type="submit">
                     Send Message
                 </Button>
             </Form>

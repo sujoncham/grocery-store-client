@@ -12,8 +12,8 @@ const Banner = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h1 className="text-success">Fast Delivery</h1>
-          <h4 className="text-success">We have open a delivery customer service</h4>
+          <h1 className="text-warning">Fast Delivery</h1>
+          <h4 className="text-warning">We have open a delivery customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -24,8 +24,8 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h1 className="text-success">Fast Service</h1>
-          <h4 className="text-success">We are delivering a fast customer service</h4>
+          <h1 className="text-warning">Fast Service</h1>
+          <h4 className="text-warning">We are delivering a fast customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -36,8 +36,8 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h1 className="text-success">Good Quality</h1>
-          <h4 className="text-success">We are delivering a good quality service</h4>
+          <h1 className="text-warning">Good Quality</h1>
+          <h4 className="text-warning">We are delivering a good quality service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -48,8 +48,8 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h1 className="text-success">Customer Service</h1>
-          <h4 className="text-success">We have open a customer service</h4>
+          <h1 className="text-warning">Customer Service</h1>
+          <h4 className="text-warning">We have open a customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

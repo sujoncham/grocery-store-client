@@ -51,7 +51,7 @@ const Home = () => {
                 <Service></Service>
                 
                 <div className="contact mt-5 mb-5 border-top border-warning">
-                    <h1 className='text-center mt-5'>Contact with us</h1>
+                    <h1 className='text-center mt-5 text-warning'>Contact with us</h1>
                     <p className='text-center mb-4'>Stay with service</p>
                     <Contact></Contact>
                 </div>
