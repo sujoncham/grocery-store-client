@@ -8,48 +8,48 @@ const Banner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/whsT19B/banner-8.jpg"
+          src="https://i.ibb.co/gz0wyhN/delivery.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          {/* <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+          <h1 className="text-success">Fast Delivery</h1>
+          <h4 className="text-success">We have open a delivery customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/D4G7FVL/banner-7.jpg"
+          src="https://i.ibb.co/h2D3k0p/service.jpg"
           alt="Second slide"
         />
 
         <Carousel.Caption>
-          {/* <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+          <h1 className="text-success">Fast Service</h1>
+          <h4 className="text-success">We are delivering a fast customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/cxLd5nm/banner-5.jpg"
+          src="https://i.ibb.co/wC6ZFqH/quality.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          {/* <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque </p> */}
+          <h1 className="text-success">Good Quality</h1>
+          <h4 className="text-success">We are delivering a good quality service</h4>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/jRBvPmV/banner-6.jpg"
+          src="https://i.ibb.co/Lgsw9j7/customer.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          {/* <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque</p> */}
+          <h1 className="text-success">Customer Service</h1>
+          <h4 className="text-success">We have open a customer service</h4>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

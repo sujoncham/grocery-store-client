@@ -41,6 +41,7 @@
 - create userCollection and collection
 - creatre network access ip address 0.0.0.0
 - collect database connection code
+- created three collections
 
 ## Axios and JWT
 
@@ -58,7 +59,7 @@
 - Footer Section also added
 - deploy in firebase and server is heroku
 - database is mongodb
-- In contact Section, mail also sending.
+- In Contact Section, mail also sending and showing mail list.
 - ----------- after login -----------
 - figureout three option - InventoryList, myItem, signout
 - In InventoryList page, product list for delete and edit and also Add Item option
@@ -68,4 +69,4 @@
 ## Project Restricted
 
 - without login you can not add product, update, edit, delete
-- have to email verification, or if socially register no need to email verify
+- have to email verification, or if socially registered! no need to email verify
