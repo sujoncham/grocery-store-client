@@ -14,7 +14,7 @@ const Contact = () => {
       };
     
     return (
-        <div className='row'>
+        <div className='row mt-5'>
         <div className='col-12 col-sm-12 col-md-6 col-lg-6'>
          
             <Form>

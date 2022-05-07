@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Service from '../Banner/Services';
 import Contact from './Contact';
+
 
 const Home = () => {
     const [stores, setStores] = useState([]);
@@ -19,6 +21,7 @@ const Home = () => {
     const handleManagePage = () =>{
         navigate('/inventory')
     }
+
 
     return (
         <div className='home'>
@@ -44,11 +47,13 @@ const Home = () => {
                        </div>
                     
                 </div>
-                <div className="contact mt-5 mb-5">
-                    <h1 className='text-center mb-4'>Contact with us</h1>
+                <div className="contact mt-5 mb-5 border-top border-warning">
+                    <h1 className='text-center mt-5'>Contact with us</h1>
                     <p className='text-center mb-4'>Stay with service</p>
                     <Contact></Contact>
                 </div>
+                <Service></Service>
+                
             </div>
         </div>
     );
