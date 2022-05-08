@@ -29,7 +29,7 @@ const InventoryList = () => {
   };
 
   const handleEditNavigate = (id) =>{
-    navigate(`/updateData/${id}`)
+    navigate(`/InventoryDataUpdate/${id}`)
 }
 
 

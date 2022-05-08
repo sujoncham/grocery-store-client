@@ -56,9 +56,13 @@ const SingleInventoryUpdate = () => {
         // console.log(event.target.stock.value);
         const {stock, ...rest} = singleStock;
         const newStock = event.target.value;
+        if(newStock <=0){
+            alert("Stock out");
+            return;
+        }
         const newStockData = {stock:newStock, ...rest};
         setSingleStock(newStockData);
-        console.log(newStockData);
+        // console.log(newStockData);
     }
 
     const handleDeliver = (event) =>{
@@ -72,7 +76,7 @@ const SingleInventoryUpdate = () => {
 
         axios.post('https://dry-oasis-82123.herokuapp.com/deliver/', deliver)
         .then(response => {
-            console.log(response);
+            // console.log(response);
             toast("Delivered data successfully");
         })
     }
@@ -96,7 +100,7 @@ const SingleInventoryUpdate = () => {
                     <Form className='d-flex flex-column' onSubmit={handleSingleStock}>
                         <input className='mb-2 p-1' type="text" name="title" value={singleStock.title} readOnly disabled />
                         <input className='mb-2 p-1' type="text" name="price" value={singleStock.price} readOnly disabled />
-                        <input className='mb-2 p-1' type="number" min="1" max={singleStock.stock} value={singleStock.stock} onChange={handleStockUpdateInput} name="stock" />
+                        <input className='mb-2 p-1' type="number" min="0" max={singleStock.stock} value={singleStock.stock} onChange={handleStockUpdateInput} name="stock" />
                         <input className='mb-2 p-1' type="text" name="dealer" value={singleStock.dealer} readOnly disabled />
                         <input className='mb-2 p-1' type="text" name="img" value={singleStock.img} readOnly disabled />
                         <textarea type="text" name="descrip" value={singleStock.descrip} readOnly disabled />

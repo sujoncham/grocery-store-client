@@ -1,19 +1,13 @@
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../Firebase/Firebase.init';
+import MapLocation from '../GoogleMap/MapLocation';
 
-const containerStyle = {
-    width: '100%',
-    height: '400px'
-  };
-
-  const center = {
-    lat: 23.785948,
-    lng: 90.4247586
-  };
 
 const Contact = () => {
+    const [user] = useAuthState(auth);
     
     const handleContactForm = (event) =>{
         event.preventDefault();
@@ -50,11 +44,19 @@ const Contact = () => {
             <Form onSubmit={handleContactForm}>
                 <Form.Group className="mb-3" controlId="NameForm.ControlInput1">
                     <Form.Label>Your name</Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Enter name" />
+                    { user ?
+                        <Form.Control type="text" name="name" value={user?.displayName} />
+                        :
+                        <Form.Control type="text" name="name" placeholder="Enter name" />
+                    }
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="EmailForm.ControlInput2">
                     <Form.Label>Your email</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="name@info.com" autoComplete='nope' />
+                    { user ?
+                        <Form.Control type="email" name="email" value={user?.email} />
+                        :
+                        <Form.Control type="email" name="email" placeholder="name@info.com" autoComplete='nope' />
+                    }
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="TextForm.ControlTextarea1">
                     <Form.Label>Send your opinion</Form.Label>
@@ -67,16 +69,7 @@ const Contact = () => {
             </div>
             <div className='col-12 col-sm-12 col-md-6 col-lg-6'>
                
-                <LoadScript googleMapsApiKey="AIzaSyCl3JIOVyMGlcWn7aPcxQdVfS8uJbB3pAA" >
-                        <GoogleMap
-                        mapContainerStyle={containerStyle}
-                        center={center}
-                        zoom={10}
-                        >
-                    { /* Child components, such as markers, info windows, etc. */ }
-                    <></>
-                    </GoogleMap>
-                </LoadScript>
+                <MapLocation></MapLocation>
             </div>
         </div>
     );

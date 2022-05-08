@@ -31,7 +31,7 @@ const Banner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://i.ibb.co/wC6ZFqH/quality.jpg"
+          src="https://i.ibb.co/yNSV1qz/best-quality.jpg"
           alt="Third slide"
         />
 
