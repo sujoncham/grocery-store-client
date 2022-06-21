@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Button, Container, Row } from 'react-bootstrap';
+// import { useNavigate } from 'react-router-dom';
 import './Inventory.css';
+import InventoryModal from './InventoryModal';
 
 const InventoryHouse = () => {
     const [stores, setStores] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
-    const navigate = useNavigate();
+
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+    
+    // const navigate = useNavigate();
 
     useEffect(()=>{
         fetch('https://dry-oasis-82123.herokuapp.com/productCount/')
@@ -27,9 +33,11 @@ const InventoryHouse = () => {
         .then(data => setStores(data));
     }, [page, size]);
 
-    const handleNavigate = (id) =>{
-        navigate(`/inventory/${id}`)
-    }
+    // const handleNavigate = (id) =>{
+    //     navigate(`/inventory/${id}`)
+    // }
+
+    const handleShow = () => setShow(true);
     
     return (
         <Container>
@@ -42,13 +50,17 @@ const InventoryHouse = () => {
                         <img src={store.img} alt="" />
                         <div className='product-title'>
                             <h3>{store.title}</h3>
-                            <button onClick={()=>handleNavigate(store._id)} className='btn btn-primary'>
+                            {/* <button onClick={()=>handleNavigate(store._id)} className='btn btn-primary'>
                                 see detail
-                            </button>
+                            </button> */}
+                            <Button variant="primary" onClick={handleShow}>
+                                see more
+                            </Button>
                         </div>
                     </div>
                 </div>)
             }
+            <InventoryModal handleClose={handleClose} show={show}></InventoryModal>
             
             <div className='mb-5'>
             {
@@ -56,13 +68,14 @@ const InventoryHouse = () => {
                 .map(number=> <button 
                     onClick={()=>setPage(number)}
                     className={page === number ? 'btn btn-warning m-1' : 'btn btn-primary m-1'}>{number}</button>)
-            }
+                }
             <select onChange={(e)=>setSize(e.target.value)}>
                 <option value="10" selected>10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
             </select>
             </div>
+            
             </Row>
         </Container>
     );
