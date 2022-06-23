@@ -1,59 +1,17 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
-
 
 const Banner = () => {
-  return (
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/gz0wyhN/delivery.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h1 className="text-warning">Fast Delivery</h1>
-          <h4 className="text-warning">We have open a delivery customer service</h4>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/h2D3k0p/service.jpg"
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h1 className="text-warning">Fast Service</h1>
-          <h4 className="text-warning">We are delivering a fast customer service</h4>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/yNSV1qz/best-quality.jpg"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h1 className="text-warning">Good Quality</h1>
-          <h4 className="text-warning">We are delivering a good quality service</h4>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/Lgsw9j7/customer.jpg"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h1 className="text-warning">Customer Service</h1>
-          <h4 className="text-warning">We have open a customer service</h4>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  );
+    return (
+        <div class="hero bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <img src="https://api.lorem.space/image/movie?w=260&h=400" class="w-96 rounded-lg shadow-2xl" alt='' />
+                <div className="w-96">
+                <h1 class="text-5xl font-bold">Box Office News!</h1>
+                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Banner;

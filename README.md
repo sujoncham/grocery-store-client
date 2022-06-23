@@ -1,72 +1,70 @@
-# Grocery Store Management
+# Getting Started with Create React App
 
-- This is assignment no-11. Topic was store management system. According to the topic, I have chosen a topic about grocery store management system. To build this requirement website using `React Js`, `firebase`, `react router`, `react bootstrap`, `react-firebase-hook`, `nodemon`, `Jwt`, `axios`, `node Js`, `express Js`, `mongodb` etc.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Requirement Links:
+## Available Scripts
 
-- Client-side repo : (https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-sujoncham)
-- Server-side repo : (https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-sujoncham)
-- Website link : (https://warehouse-management-ser-f94b6.web.app)
-- StackOverFlow link : (https://stackoverflow.com/questions/72085284/how-can-i-extract-keys-and-values-from-a-nested-object-of-objects/72085664#72085664)
+In the project directory, you can run:
 
-## project developing requirements
+### `npm start`
 
-- install react router
-- install react bootstrap
-- install react firebase hooks
-- install react toastify
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Authentication requirements
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- create firebase account
-- create project name
-- install firebase
-- create firebase.init file
-- activated user sign option like google, github
+### `npm test`
 
-## Node Js and Express Js
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- Mkdir or make folder
-- npm init or npm -y
-- npm install express
-- npm install cors
-- npm install mongodb
-- npm install nodemon
-- npm install dotenv
+### `npm run build`
 
-## MongoDb Database
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- create account
-- create database
-- create userCollection and collection
-- creatre network access ip address 0.0.0.0
-- collect database connection code
-- created three collections
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Axios and JWT
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Jwt added for secure login and secure data.
-- Axios added for reducing code
+### `npm run eject`
 
-## Project Overview
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- Header added with logo and logo name
-- In header, menu added
-- In Home page, added banner and inventory data
-- In About page, added about myself and picture
-- In Inventory page, added inventory data
-- In Blog page, added four questions answer
-- Footer Section also added
-- deploy in firebase and server is heroku
-- database is mongodb
-- In Contact Section, mail also sending and showing mail list.
-- ----------- after login -----------
-- figureout three option - InventoryList, myItem, signout
-- In InventoryList page, product list for delete and edit and also Add Item option
-- In myItem page, Product delivered user id with product item(indivisual record)
--
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Project Restricted
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- without login you can not add product, update, edit, delete
-- have to email verification, or if socially registered! no need to email verify
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
