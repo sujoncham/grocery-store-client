@@ -8,7 +8,7 @@ const Inventory = () => {
         fetch('http://localhost:5000/inventory')
         .then(res => res.json())
         .then(data => setProducts(data));
-    }, [])
+    }, []);
     return (
         <div className="p-14">
             <h1 className="text-3xl text-center">Inventory : {products.length}</h1>

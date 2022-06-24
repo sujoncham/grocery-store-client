@@ -1,9 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Login from './components/Authenticate/Login';
+import Register from './components/Authenticate/Register';
+import AllProductList from './components/Dashboard/AllProductList';
+import AllUserList from './components/Dashboard/AllUserList';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import About from './components/Pages/About';
+import Blog from './components/Pages/Blog';
+import Contact from './components/Pages/Contact';
+import Dashboard from './components/Pages/Dashboard';
 import Home from './components/Pages/Home';
 import Inventory from './components/Pages/Inventory';
+import Page404 from './components/Pages/Page404';
 
 function App() {
   return (
@@ -13,7 +22,17 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+          <Route path='allProductList' element={<AllProductList></AllProductList>}></Route>
+          <Route path='allUserList' element={<AllUserList></AllUserList>}></Route>
+        </Route>
+        <Route path='*' element={<Page404></Page404>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
