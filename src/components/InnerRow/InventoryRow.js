@@ -2,16 +2,16 @@
 const InventoryRow = ({product}) => {
     const {img, title, descrip, price, stock, dealer} = product;
     return (
-        <div class="card w-100 bg-base-100 shadow-xl">
+        <div className="card w-100 bg-base-100 shadow-xl">
             <figure><img src={img} alt="product" /></figure>
-            <div class="card-body">
-                <h2 class="card-title">{title}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{title}</h2>
                 <p>{descrip}</p>
                 <p>{price}</p>
                 <p>{stock}</p>
                 <p>{dealer}</p>
-                <div class="card-actions justify-center">
-                <button class="btn btn-primary">Buy Now</button>
+                <div className="card-actions justify-center">
+                <button className="btn btn-primary">Buy Now</button>
                 </div>
             </div>
         </div>
