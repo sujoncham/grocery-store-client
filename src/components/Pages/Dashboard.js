@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 const Dashboard = () => {
     return (
-        <div className="drawer drawer-mobile">
+        <div className="drawer drawer-mobile ">
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col justify-start">
                
@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <Outlet></Outlet>
             
             </div> 
-            <div className="drawer-side">
+            <div className="drawer-side border-r-slate-400 border">
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label> 
                 <ul className="menu p-4 overflow-y-auto w-56 bg-base-100 text-base-content">
                 

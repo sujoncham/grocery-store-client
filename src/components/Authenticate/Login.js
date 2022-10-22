@@ -1,5 +1,5 @@
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Firebase/Firebase.init';
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -56,7 +56,7 @@ const handleLoginForm = (event)=>{
                     </form>
                     <p className='text-red-500'>{textEror}</p>
                     <div>
-                        <p>New at Grocery Store? <a href="/register" className="text-blue-500">create account</a> here </p>
+                        <p>New at Grocery Store? <Link to="/register" className="text-blue-500">create account</Link> here </p>
                     </div>
                     <div className="divider">OR</div>
                     <div className="text-center mt-10">

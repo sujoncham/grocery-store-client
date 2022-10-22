@@ -1,8 +1,8 @@
 
 const Greetings = () => {
     return (
-        <div>
-            <h1 className="text-4xl">Welcome to Dashboard</h1>
+        <div className="p-10">
+            <h1 className="text-4xl font-bold">Welcome to Dashboard</h1>
         </div>
     );
 };

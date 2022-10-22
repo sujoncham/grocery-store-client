@@ -9,6 +9,7 @@ import Greetings from './components/Dashboard/Greetings';
 import ProductAdd from './components/Dashboard/ProductAdd';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import SingleOrderPage from './components/InnerRow/SingleOrderPage';
 import About from './components/Pages/About';
 import Blog from './components/Pages/Blog';
 import Contact from './components/Pages/Contact';
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/inventory/:id' element={<SingleOrderPage></SingleOrderPage>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
