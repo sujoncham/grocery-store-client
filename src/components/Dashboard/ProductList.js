@@ -5,7 +5,7 @@ const ProductList = ({product, index}) => {
     const deleteProduct = (id) =>{
         const confirDelete = window.confirm('Are you sure to delete this product?');
         if(confirDelete){
-            fetch(`http://localhost:5000/inventory/${id}`, {
+            fetch(`https://grocery-store-server.onrender.com/inventory/${id}`, {
                 method: 'DELETE',
                 headers:{
                     'content-type': 'application/json'

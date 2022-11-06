@@ -6,7 +6,7 @@ const Inventory = () => {
     const [searched, setSearched] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/inventory')
+        fetch('https://grocery-store-server.onrender.com/inventory')
         .then(res => res.json())
         .then(data => {
             setSearched(data);

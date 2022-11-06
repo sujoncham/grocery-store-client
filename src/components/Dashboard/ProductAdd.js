@@ -19,7 +19,7 @@ const ProductAdd = () => {
             img,
         }
 
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://grocery-store-server.onrender.com/inventory', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

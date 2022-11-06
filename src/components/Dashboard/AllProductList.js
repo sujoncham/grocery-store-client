@@ -5,7 +5,7 @@ const AllProductList = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/inventory')
+        fetch('https://grocery-store-server.onrender.com/inventory')
         .then(res => res.json())
         .then(data => setProducts(data));
     }, []);
